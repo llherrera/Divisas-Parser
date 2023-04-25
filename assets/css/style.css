@@ -10,26 +10,3 @@
 * {
     box-sizing: border-box;
 }
-
-#divisa-origen option[data-bandera] {
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    padding-left: 20px;
-}
-#divisa-origen option[value='USD'] {
-    background-image: url('https://www.xe.com/static-images/usd.static.e8b657d1161a08a32415d284a8e1dc89.svg');
-}
-#divisa-origen option[value='EUR'] {
-    background-image: url('https://www.xe.com/static-images/eur.static.7c6f881c3b6506b03bcbda3644485094.svg');
-}
-#divisa-origen option[value='GBP'] {
-    background-image: url('https://www.xe.com/static-images/gbp.static.da0ca3d1b6d9e74642276a0ea3cde603.svg');
-}
-#divisa-origen option[value='COP'] {
-    background-image: url('https://www.xe.com/static-images/cop.static.b8c0df9825b439abb5f9ca9ef09b42f3.svg');
-}
-#divisa-origen option[value='MXN'] {
-    background-image: url('https://www.xe.com/static-images/mxn.static.310a81ec23f9bab8efb18ae9ee9b3a05.svg');
-}
-
-

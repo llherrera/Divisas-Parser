@@ -7,45 +7,48 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Divisas Parser</title>
 </head>
-<body class="bg-blue-500">
-    <div class="container mx-auto items-center">
-        <nav class="bg-blue-700 flex justify-center">
+<body class="">
+    <div class="bg-blue-700 flex justify-between py-4">
+        <div class="ml-6 text-white">DP exchance</div>
+        <nav class="justify-center">
             <ul class="inline-flex">
-                <li class="px-5 hover:bg-blue-400"><a href="index.html">Enviar dinero</a></li>
-                <li class="px-5 hover:bg-blue-400"><a href="about.html">Conversor</a></li>
-                <li class="px-5 hover:bg-blue-400"><a href="about.html">API</a></li>
-                <li class="px-5 hover:bg-blue-400"><a href="about.html">Herramientas</a></li>
+                <li class="px-5 hover:bg-blue-400 text-white"><a href="index.html">Enviar dinero</a></li>
+                <li class="px-5 hover:bg-blue-400 text-white"><a href="about.html">Conversor</a></li>
+                <li class="px-5 hover:bg-blue-400 text-white"><a href="about.html">API</a></li>
+                <li class="px-5 hover:bg-blue-400 text-white"><a href="about.html">Herramientas</a></li>
             </ul>
         </nav>
-        <header>
-            <div class="flex justify-center font-bold text-white">
-                Divisas Parser
-            </div>
-            <div class="flex justify-center text-white">
-                check live foreing currency
-            </div>
-        </header>
-        <div class="px-6 py-4 bg-white rounded">
+        <div class="mr-6 text-white">
+            <p class="inline-block mr-2"><span></span>Entrar</p>
+            <p class="inline-block px-4 bg-cyan-500 rounded"><span></span>Registrar</p>
+        </div>
+    </div>
+    <div class="container mx-auto items-center">
+        <div class="my-6 px-6 py-4 bg-cyan-500 rounded shadow-xl">
+            <header>
+                <div class="flex justify-center text-3xl font-bold text-black">
+                    Divisas Parser
+                </div>
+            </header>
             <form action="#" method="post">
-                <div class="flex justify-center">
+                <div class="mt-5 flex justify-between">
                     <label class="inline-block">
-                        <span class="block">Monto</span>
-                        <input type="text" id="monto" name="monto-nm" placeholder="1.00">
+                        <span class="block text-xl font-bold">Monto</span>
+                        <input class="rounded" type="text" id="monto" name="monto-nm" placeholder="1.00">
                     </label>
                     <label class="inline-block">
-                        <span class="block">De</span>
-                        <select name="divisa-origen" id="divisa-origen">
-                            <option value="USD" data-bandera="https://www.xe.com/static-images/usd.static.e8b657d1161a08a32415d284a8e1dc89.svg">USD</option>
+                        <span class="block text-xl font-bold">De</span>
+                        <select class="pr-32" name="divisa-origen" id="divisa-origen">
+                            <option value="USD">USD</option>
                             <option value="EUR">EUR</option>
                             <option value="GBP">GBP</option>
                             <option value="COP">COP</option>
                             <option value="MXN">MXN</option>
                         </select>
                     </label>
-                    <p><span></span>*</p>
                     <label class="inline-block">
-                        <span class="block">A</span>
-                        <select name="divisa-destino" id="divisa-destino">
+                        <span class="block text-xl font-bold">A</span>
+                        <select class="pr-32" name="divisa-destino" id="divisa-destino">
                             <option value="">USD</option>
                             <option value="">EUR</option>
                             <option value="">LIB</option>
@@ -54,10 +57,37 @@
                         </select>
                     </label>
                 </div>
-                <div class="flex justify-center">
-                    <input class="ml-4" type="submit" value="Convertir">
+                <div class="mt-5 flex justify-end">
+                    <input class="bg-blue-700 ml-4 px-4 text-white rounded" type="submit" value="Convertir">
                 </div>
             </form>
+        </div>
+        <div class="flex justify-between">
+            <div class="justify-center shadow-xl">
+                <div class="px-6 py-4 bg-cyan-500 rounded">
+                    <div class="flex justify-center font-bold text-black">
+                        Tabla de conversión
+                    </div>
+                    <div>
+                        <p>USD - US Dollar</p>
+                    </div>
+                    <div class="bg-white flex">
+                        <div class="justify-start mx-5">
+                            <p>Moneda</p>
+                        </div>
+                        <div class="justify-end mx-5">
+                            <p>Valor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="justify-center shadow-xl">
+                <div class="px-6 py-4 bg-cyan-500 rounded">
+                    <div class="flex justify-center font-bold text-black">
+                        Historial
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
