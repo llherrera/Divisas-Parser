@@ -33,11 +33,11 @@
                     </div>
                 </div>
             </header>
-            <form class="pb-4 border-b-2 border-black" action="#" method="post">
+            <form class="pb-4 border-b-2 border-black" action="#" method="get">
                 <div class="mt-5 flex justify-between">
                     <label class="inline-block">
                         <span class="block text-xl font-bold text-[#3A3A40]">Monto</span>
-                        <input class="rounded w-372 h-8 bg-[#F3F3F3]" type="text" id="monto" name="monto-nm" placeholder="$1.00">
+                        <input class="rounded w-372 h-8 bg-[#F3F3F3]" type="text" id="monto" name="monto" placeholder="$1.00">
                     </label>
                     <label class="inline-block">
                         <span class="block text-xl font-bold text-[#3A3A40]">De</span>
@@ -52,11 +52,11 @@
                     <label class="inline-block">
                         <span class="block text-xl font-bold text-[#3A3A40]">A</span>
                         <select class="pr-32 h-8 bg-[#F3F3F3]" name="divisa-destino" id="divisa-destino">
-                            <option value="">USD</option>
-                            <option value="">EUR</option>
-                            <option value="">LIB</option>
-                            <option value="">COP</option>
-                            <option value="">MEX</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">LIB</option>
+                            <option value="COP">COP</option>
+                            <option value="MXN">MEX</option>
                         </select>
                     </label>
                 </div>
@@ -65,25 +65,8 @@
                 </div>
             </form>
             <section>
-                <div class="mt-4">
-                    <p class="text-2xl">
-                        1.00 US Dollar = 0.90 Euros
-                    </p>
-                </div>
-                <div class="mt-4">
-                    <p class="text-2xl">
-                        1.00 US Dollar = 0.90 Euros
-                    </p>
-                </div>
-                <div class="mt-4">
-                    <p class="text-2xl">
-                        1.00 US Dollar = 0.90 Euros
-                    </p>
-                </div>
-                <div class="mt-4">
-                    <p class="text-2xl">
-                        1.00 US Dollar = 0.90 Euros
-                    </p>
+                <div class="conver">
+                    
                 </div>
             </section>
         </div>
@@ -129,11 +112,8 @@
                     Historial
                 </div>
                 <section class="bg-[#F3F3F3] mt-10 rounded py-2">
-                    <div>
-                        <p class="ml-5">1.00 US Dollar = 0.90 Euros</p>
-                    </div>
-                    <div >
-                        <p class="ml-5">1.00 US Dollar = 0.90 Euros</p>
+                    <div class="hist">
+                        
                     </div>
                 </section>
             </div>
