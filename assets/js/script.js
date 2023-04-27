@@ -29,7 +29,21 @@ convert.addEventListener('click', (e) => {
       .then(result => add(result))
       .catch(error => console.log('error', error));
 
-})
+    var myHeaders = new Headers();
+    myHeaders.append("apikey", "PupJKKJvcpMhXgj8HaM4DASkDmlrmR9Q");
+      
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow',
+        headers: myHeaders
+    };
+      
+    fetch(`https://api.apilayer.com/fixer/latest?symbols=USD%2CEUR%2CGBP%2CCOP%2CMXN&base=${encodeURI(divisao)}`, requestOptions)
+      .then(response => response.json())
+      .then(result => addT(result))
+      .catch(error => console.log('error', error));
+
+    })
 
 const add = (res) => {
     const convers = {id: create_UUID(), value: res}
@@ -98,6 +112,168 @@ function create_UUID() {
       }
     );
     return uuid;
+}
+
+const addT = (res) => {
+    const fragment = addTable(res)
+    document.querySelector('.conver-tab').removeChild(document.querySelector('.conver-tab').lastChild)
+    document.querySelector('.conver-tab').appendChild(fragment)
+}
+
+const addTable = (res) => {
+    const fragment = document.createDocumentFragment()
+    const article = document.createElement('article')
+
+    const pBase = createP({
+        text: `${res.base}`,
+    })
+    const divBase = createDiv({
+        classDiv: ['my-2', 'text-[#3A3A40]'],
+        children: [pBase]
+    })
+
+    const divMoney = createDiv({
+        classDiv: ['flex'],
+        children: [
+            createDiv({
+                classDiv: ['w-2/3', 'py-2', 'border-r', 'border-black'],
+                children: [
+                    createP({
+                        text: `Moneda`,
+                        classP: ['ml-32', 'font-bold']
+                    })
+                ]
+            }),
+            createDiv({
+                classDiv: ['w-1/3', 'py-2', 'border-r', 'border-black'],
+                children: [
+                    createP({
+                        text: `Valor`,
+                        classP: ['ml-12', 'font-bold']
+                    })
+                ]
+            })
+        ]
+    })
+
+    const divDivisa1 = createDiv({
+        classDiv: ['flex'],
+        children: [
+            createDiv({
+                classDiv: ['w-2/3', 'border-r', 'border-black'],
+                children: [
+                    createP({
+                        text: `USD`,
+                    })
+                ]
+            }),
+            createDiv({
+                classDiv: ['w-1/3', 'px-16'],
+                children: [
+                    createP({
+                        text: `${res.rates.USD}`,
+                    })
+                ]
+            }),
+        ]
+    })
+    const divDivisa2 = createDiv({
+        classDiv: ['flex'],
+        children: [
+            createDiv({
+                classDiv: ['w-2/3', 'border-r', 'border-black'],
+                children: [
+                    createP({
+                        text: `EUR`,
+                    })
+                ]
+            }),
+            createDiv({
+                classDiv: ['w-1/3', 'px-16'],
+                children: [
+                    createP({
+                        text: `${res.rates.EUR}`,
+                    })
+                ]
+            }),
+        ]
+    })
+    const divDivisa3 = createDiv({
+        classDiv: ['flex'],
+        children: [
+            createDiv({
+                classDiv: ['w-2/3', 'border-r', 'border-black'],
+                children: [
+                    createP({
+                        text: `GBP`,
+                    })
+                ]
+            }),
+            createDiv({
+                classDiv: ['w-1/3', 'px-16'],
+                children: [
+                    createP({
+                        text: `${res.rates.GBP}`,
+                    })
+                ]
+            }),
+        ]
+    })
+    const divDivisa4 = createDiv({
+        classDiv: ['flex'],
+        children: [
+            createDiv({
+                classDiv: ['w-2/3', 'border-r', 'border-black'],
+                children: [
+                    createP({
+                        text: `COP`,
+                        classP: ['aling-middle']
+                    })
+                ]
+            }),
+            createDiv({
+                classDiv: ['w-1/3', 'px-16'],
+                children: [
+                    createP({
+                        text: `${res.rates.COP}`,
+                        classP: ['aling-middle']
+                    })
+                ]
+            }),
+        ]
+    })
+    const divDivisa5 = createDiv({
+        classDiv: ['flex'],
+        children: [
+            createDiv({
+                classDiv: ['w-2/3', 'border-r', 'border-black'],
+                children: [
+                    createP({
+                        text: `MXN`,
+                    })
+                ]
+            }),
+            createDiv({
+                classDiv: ['w-1/3', 'px-16'],
+                children: [
+                    createP({
+                        text: `${res.rates.MXN}`,
+                    })
+                ]
+            }),
+        ]
+    })
+
+    const divTabla = createDiv({
+        classDiv: ['bg-[#F3F3F3]', 'rounded'],
+        children: [divMoney ,divDivisa1, divDivisa2, divDivisa3, divDivisa4, divDivisa5]
+    })
+
+    article.appendChild(divBase)
+    article.appendChild(divTabla)
+
+    fragment.appendChild(article)
+    return fragment
 }
 
 conversStorage.forEach((e) => {
